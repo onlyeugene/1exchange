@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
-import Container from "../ui/container";
+import Container from "@/components/ui/container";
+
 // import Image from "next/image";
 
 interface NewsItem {
@@ -15,9 +16,12 @@ interface NewsItem {
   urlToImage: string;
 }
 
-const CryptoNews = () => {
+const NEWS_PER_PAGE = 20;
+
+const News = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   const NEWS_API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY; // <-- Replace this with your NewsAPI key
   useEffect(() => {
@@ -30,13 +34,41 @@ const CryptoNews = () => {
     fetchNews();
   }, [NEWS_API_KEY]);
 
-  const newsBlog = news.slice(0, 4);
+  // Pagination logic
+  const totalPages = Math.ceil(news.length / NEWS_PER_PAGE);
+  const paginatedNews = news.slice(
+    (page - 1) * NEWS_PER_PAGE,
+    page * NEWS_PER_PAGE
+  );
 
   return (
-    <div className="w-full py-20 bg-gray-100/50">
-      <Container>
-        <h2 className="text-xl font-bold mb-4 text-center">
+    <div className="">
+         <div className="bg-[#0d7fa3] pt-40 pb-20">
+        <h1 className="text-white text-4xl font-bold container">
           Latest Crypto News
+        </h1>
+        <p className="text-white text-lg container">
+          Investing in crypto is exciting, but it&apos;s essential to have all
+          news and on goings in the crypto world.
+        </p>
+        {/* <div
+              data-aos="fade-up"
+              data-aos-duration="1000"
+              data-aos-delay="600"
+              className="flex gap-4 my-2 w-full container"
+            >
+              <input
+                className="bg-white border-gray-300 border md:px-5 px-2 md:pr-20 pr-0 md:py-3 py-2 rounded-md text-gray-500 outline-none md:text-lg text-sm"
+                placeholder="Trading amount"
+              />
+              <button className="bg-[#0f98c1] text-white md:px-4 px-2 md:py-2 py-1 rounded-md md:text-lg text-sm ">
+                Exchange
+              </button>
+            </div> */}
+      </div>
+      <Container>
+        <h2 className="text-2xl font-bold mb-4 text-center">
+           Crypto News
         </h2>
         {loading ? (
           <div className="text-center py-10">Loading...</div>
@@ -51,7 +83,7 @@ const CryptoNews = () => {
               //   data-aos-anchor-placement="top-center"
               data-aos-once="false"
             >
-              {newsBlog.map((item, idx) => (
+              {paginatedNews.map((item, idx) => (
                 <li
                   key={item.url + idx}
                   className="bg-white p-4 shadow border border-gray-100 flex flex-col  h-full"
@@ -89,12 +121,25 @@ const CryptoNews = () => {
                 </li>
               ))}
             </ul>
-            <div className="flex justify-end mt-6">
-              <Link href="/news">
-                <button className="cursor-pointer  text-black font-semibold hover:underline hover:underline-offset-8 transition-colors duration-150">
-                  See More
-                </button>
-              </Link>
+            {/* Pagination Controls */}
+            <div className="flex justify-center items-center gap-2 mt-8">
+              <button
+                className="px-3 py-1 rounded border bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50"
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={page === 1}
+              >
+                Prev
+              </button>
+              <span className="font-semibold">
+                Page {page} of {totalPages}
+              </span>
+              <button
+                className="px-3 py-1 rounded border bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50"
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+              >
+                Next
+              </button>
             </div>
           </>
         )}
@@ -103,4 +148,4 @@ const CryptoNews = () => {
   );
 };
 
-export default CryptoNews;
+export default News;

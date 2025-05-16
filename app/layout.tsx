@@ -10,6 +10,7 @@ import {
 import Navbar from "@/components/navbar/index";
 import AOSProvider from "@/components/providers/aos-provider";
 import { Analytics } from '@vercel/analytics/next';
+import Footer from "@/components/footer/footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -57,6 +58,7 @@ export default function RootLayout({
         <AOSProvider>
           <Navbar />
           <main className="">{children}</main>
+          <Footer />
         </AOSProvider>
         <Analytics />
       </body>

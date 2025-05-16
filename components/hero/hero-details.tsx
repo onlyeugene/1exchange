@@ -86,9 +86,7 @@ const HeroDetails = () => {
             </h3>
             <p className="mt-2 text-gray-400 font-poppins text-sm">
               We at One Exchange are a team of experienced professionals who are
-              dedicated to providing the best possible service to our clients.We
-              are a one stop shop for trading bitcoin, gift-cards and other
-              digital payments and currencies We are here to make your trade
+              dedicated to providing the best possible service to our clients. We are here to make your trade
               easy and stress free, regardless of the amount, we got you
               covered.
             </p>

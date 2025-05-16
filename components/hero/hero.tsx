@@ -5,9 +5,9 @@ import Container from "../ui/container";
 
 const Hero = () => {
   return (
-    <main className="bg-[#0d7fa3] md:pt-30 md:pb-20 pt-20 pb-10 text-white">
+    <main className="bg-[#0d7fa3] md:pt-30 md:pb-20 pt-20 pb-10 text-white h-[70vh] md:h-auto flex items-center justify-center ">
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
           <div className="">
             <p
               data-aos="fade-right"
@@ -42,10 +42,10 @@ const Hero = () => {
               className="flex gap-4 my-2 w-full"
             >
               <input
-                className="bg-white border-gray-300 border md:px-5 px-2 md:pr-20 pr-0 md:py-3 py-2 rounded-md text-gray-500 outline-none md:text-lg text-xs"
+                className="bg-white border-gray-300 border md:px-5 px-2 md:pr-20 pr-0 md:py-3 py-2 rounded-md text-gray-500 outline-none md:text-lg text-sm"
                 placeholder="Trading amount"
               />
-              <button className="bg-[#0f98c1] text-white md:px-4 px-2 md:py-2 py-1 rounded-md md:text-lg text-[10px] ">
+              <button className="bg-[#0f98c1] text-white md:px-4 px-2 md:py-2 py-1 rounded-md md:text-lg text-sm ">
                 Exchange
               </button>
             </div>

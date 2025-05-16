@@ -46,7 +46,7 @@ const CryptoMarket = () => {
   }
 
   return (
-    <div className="overflow-x-auto w-full  mx-auto mt-10">
+    <div className="overflow-x-auto bg-gray-100 py-20">
       <Container>
         {/* Filter Tabs */}
         <div className="flex justify-center gap-4 mb-6">
@@ -93,7 +93,7 @@ const CryptoMarket = () => {
           <>
             <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow">
               <thead>
-                <tr className="bg-gray-100">
+                <tr className="bg-[#0f98c1] text-white">
                   <th className="py-2 px-4 text-left">Coin</th>
                   <th className="py-2 px-4 text-left">Symbol</th>
                   <th className="py-2 px-4 text-right">Price (USD)</th>
