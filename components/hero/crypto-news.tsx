@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import Container from "../ui/container";
+import Image from "next/image";
 // import Image from "next/image";
 
 interface NewsItem {
@@ -48,7 +49,7 @@ const CryptoNews = () => {
                   key={item.url + idx}
                   className="bg-white p-4  shadow border border-gray-100 h-[400px]"
                 >
-                  <img
+                  <Image
                     src={item.urlToImage}
                     alt={item.title}
                     className="w-full h-40 object-cover"
