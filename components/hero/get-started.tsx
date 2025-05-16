@@ -103,10 +103,10 @@ const GetStarted = () => {
                 <span className="font-bold text-lg">{idx + 1}</span>
               </div>
               <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                viewport={{ once: true, amount: 0.3 }}
+                // initial={{ opacity: 0, y: 40 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // transition={{ duration: 0.6, delay: idx * 0.15 }}
+                // viewport={{ once: true, amount: 0.3 }}
                 className={`items-center gap-4 p-4 border border-gray-200 bg-white shadow transition-transform duration-200 cursor-pointer w-full flex flex-col md:flex-row
                   ${
                     hovered === idx
