@@ -110,7 +110,7 @@ const GetStarted = () => {
                 className={`items-center gap-4 p-4 border border-gray-200 bg-white shadow transition-transform duration-200 cursor-pointer w-full flex flex-col md:flex-row
                   ${
                     hovered === idx
-                      ? "scale-105 border-[#0f98c1] shadow-sm hover:bg-[#0f98c1] text-white transition-all duration-200 "
+                      ? "scale-105 border-[#0f98c1] shadow-sm md:hover:bg-[#0f98c1] hover:bg-none text-white transition-all duration-200 "
                       : "hover:scale-105 hover:border-[#0f98c1] transition-all duration-200"
                   }
                 `}
